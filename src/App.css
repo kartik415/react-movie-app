@@ -106,6 +106,10 @@ header{
 .tag.red{
   color: rgb(188, 38, 38);
 }
+a{
+  text-decoration: none;
+  color: white;
+}
 
 
 

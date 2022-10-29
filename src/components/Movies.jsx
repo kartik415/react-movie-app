@@ -11,9 +11,10 @@ const setVoteClass = (vote) => {
         return "red";
     }
 }
-const Movie = ({ title, poster_path, overview, 
+const Movie = ({ title, poster_path, overview, id,  
 vote_average}) => (
-    <div className="movie">
+    <a href={`https://www.themoviedb.org/movie/${id}`} target="_blank">
+        <div className="movie">
         <img src={ IMG_API+poster_path } alt={title}/>
         <div className="movie-info">
             <h3>{title}</h3>
@@ -28,5 +29,7 @@ vote_average}) => (
             <p>{overview}</p>
         </div>
     </div>
+    </a>
+    
 );
 export default Movie;
