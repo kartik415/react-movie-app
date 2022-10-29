@@ -2,23 +2,23 @@ import React from "react";
 import Card from "./Card";
 import { useState, useEffect } from "react";
 
-const TOPRATED_MOVIE = `https://api.themoviedb.org/3/movie/top_rated?api_key=${
+const TOPRATED_TV = `https://api.themoviedb.org/3/tv/top_rated?api_key=${
   import.meta.env.VITE_TMDB_KEY
 }&language=en-US&page=1`;
 
-const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${
+const SEARCH_API = `https://api.themoviedb.org/3/search/tv?api_key=${
   import.meta.env.VITE_TMDB_KEY
 }&query=`;
 
-const Movies = () => {
-  const [topratedMovies, setTopratedMovies] = useState([]);
+const Tv = () => {
+  const [topratedTv, setTopratedTv] = useState([]);
   const [searchTerm, setsearchTerm] = useState([]);
 
   useEffect(() => {
-    fetch(TOPRATED_MOVIE)
+    fetch(TOPRATED_TV)
       .then((res) => res.json())
       .then((data) => {
-        setTopratedMovies(data.results);
+        setTopratedTv(data.results);
       });
   }, []);
   const handleOnSubmit = (e) => {
@@ -27,14 +27,13 @@ const Movies = () => {
     fetch(SEARCH_API + searchTerm)
       .then((res) => res.json())
       .then((data) => {
-        setTopratedMovies(data.results);
+        setTopratedTv(data.results);
       });
   };
 
   const handleOnChange = (e) => {
     setsearchTerm(e.target.value);
   };
-
   return (
     <>
       <form className="formWrapper" onSubmit={handleOnSubmit}>
@@ -47,13 +46,13 @@ const Movies = () => {
         />
       </form>
       <div className="movie-container">
-        {topratedMovies.length > 0 &&
-          topratedMovies.map((movie) => (
-            <Card key={movie.id} {...movie} type="movie" />
+        {topratedTv.length > 0 &&
+          topratedTv.map((movie) => (
+            <Card key={movie.id} {...movie} type="tv" />
           ))}
       </div>
     </>
   );
 };
 
-export default Movies;
+export default Tv;

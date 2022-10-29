@@ -37,3 +37,17 @@ h1 {
   line-height: 1.1;
 }
  */
+
+ 
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #242424;
+}
+
+::-webkit-scrollbar-thumb {
+  background:  rgb(18, 56, 95);
+}
