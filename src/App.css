@@ -11,7 +11,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #262626;
+  background-color: #0D132F;
   
   color: rgb(255, 255, 255);
   font-family: sans-serif;
@@ -35,9 +35,8 @@ body {
   max-height: 100%;
 }
 header{
-  background-color: rgb(23, 23, 39);
+  background-color: #0D132F;
   padding: 1.4rem;
-  color: rgb(23, 23, 39);
   display: flex;
   justify-items: center;
   justify-content: center;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
 const setVoteClass = (vote) => {
@@ -19,7 +19,13 @@ const Card = ({
   vote_average,
   type,
   name,
+  genre_ids,
+  original_language,
+  release_date,
+  vote_count,
 }) => {
+  const navigate = useNavigate();
+
   const handleClick = () => {
     fetch(
       `https://api.themoviedb.org/3/${type}/${id}/external_ids?api_key=${
@@ -36,7 +42,25 @@ const Card = ({
       });
   };
   return (
-    <div onClick={handleClick}>
+    <div
+      onClick={() =>
+        navigate(`/${type}/${id}`, {
+          state: {
+            title,
+            poster_path,
+            overview,
+            id,
+            vote_average,
+            type,
+            name,
+            genre_ids,
+            original_language,
+            release_date,
+            vote_count,
+          },
+        })
+      }
+    >
       <div className="movie">
         <img src={IMG_API + poster_path} alt={title} />
         <div className="movie-info">
