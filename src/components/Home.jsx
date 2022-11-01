@@ -56,30 +56,28 @@ const Home = () => {
   return (
     <>
       <div className="wrapper">
-        <h1 style={{ margin: "1rem" }}>Now Playing Movies</h1>
+        <h1 className="text-3xl mt-6 mx-4">Now Playing Movies</h1>
         <div className="scroll-container">
           {playingMovies.length > 0 &&
             playingMovies.map((movie) => (
               <Card key={movie.id} type="movie" {...movie} />
             ))}
         </div>
-        <h1 style={{ margin: "1rem", marginTop: "2rem" }}>Upcoming Movies</h1>
+        <h1 className="text-3xl mt-8 mx-4">Upcoming Movies</h1>
         <div className="scroll-container">
           {upcomingMovies.length > 0 &&
             upcomingMovies.map((movie) => (
               <Card key={movie.id} type="movie" {...movie} />
             ))}
         </div>
-        <h1 style={{ margin: "1rem", marginTop: "2rem" }}>
-          TV Shows Airing Today
-        </h1>
+        <h1 className="text-3xl mt-8 mx-4">TV Shows Airing Today</h1>
         <div className="scroll-container">
           {airingtodayTV.length > 0 &&
             airingtodayTV.map((movie) => (
               <Card key={movie.id} type="tv" {...movie} />
             ))}
         </div>
-        <h1 style={{ margin: "1rem", marginTop: "2rem" }}>TV Shows on Air</h1>
+        <h1 className="text-3xl mt-8 mx-4">TV Shows on Air</h1>
         <div className="scroll-container">
           {onairTV.length > 0 &&
             onairTV.map((movie) => (
